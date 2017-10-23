@@ -102,6 +102,8 @@ define( ["qlik", "css!./Slider.css"],
 
 				$scope.component.model.Validated.bind(function() {
 					if(!$scope.sliderLocked) {
+						$scope.$slider.slider('option', 'min', Number($scope.layout.settings.min));
+						$scope.$slider.slider('option', 'max', Number($scope.layout.settings.max));
 						$scope.min = $scope.layout.qHyperCube.qMeasureInfo[0].qMin;
 						$scope.max = $scope.layout.qHyperCube.qMeasureInfo[0].qMax;
 						$scope.$slider.slider('values',[$scope.min,$scope.max]);
